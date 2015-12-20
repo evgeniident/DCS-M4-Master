@@ -1,0 +1,64 @@
+# Include your custom_postgui HAL commands here
+# This file will not be overwritten when you run PNCconf again
+
+
+
+
+# LED
+
+# LIMIT
+
+net x-neg-limit 	=>	pyvcp.limit_x_licht
+
+net y-neg-limit 	=>	pyvcp.limit_y_licht
+
+net z-neg-limit 	=>	pyvcp.limit_z_licht
+
+
+# HOME
+
+net x-home-sw	 	=>	pyvcp.home_x_licht
+
+net y-home-sw	 	=>	pyvcp.home_y_licht
+
+net z-home-sw	 	=>	pyvcp.home_z_licht
+
+
+# VELOCITY
+
+net x-vel-fb 		=>	pyvcp.vel_x
+
+net y-vel-fb 		=>	pyvcp.vel_y
+
+net z-vel-fb 		=>	pyvcp.vel_z
+
+# Jog BUTTON
+
+
+net jog-x-pos 	=>  	pyvcp.set-pos-x
+net jog-x-neg		=>  	pyvcp.set-neg-x
+
+net jog-y-pos 	=>  	pyvcp.set-pos-y
+net jog-y-neg		=>	  pyvcp.set-neg-y
+
+net jog-z-pos 	=>  	pyvcp.set-pos-z
+net jog-z-neg		=>	  pyvcp.set-neg-z
+
+
+
+# Jog Wheel
+
+net speed	halui.jog-speed <= 	pyvcp.speed
+
+
+
+
+# Funktions Button
+
+net set-tool-length		halui.mdi-command-00 <=   pyvcp.set-tool-length
+net set-ngc 			    halui.mdi-command-01 <=   pyvcp.set-ngc
+net position_off		  halui.mdi-command-02 <=   pyvcp.position_off
+net set-position-save	halui.mdi-command-03 <=   pyvcp.set-position-save
+net position_start		halui.mdi-command-04 <=   pyvcp.position_start
+
+
