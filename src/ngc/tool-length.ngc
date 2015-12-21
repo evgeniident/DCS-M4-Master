@@ -1,0 +1,16 @@
+O<tool-length> sub
+
+G0 Z 35 F400
+G0 Y-19.860 F400
+G0 X-95.902 F400
+
+G0 Z -5 F100	
+
+G38.2 Z -19 F30
+G92 Z -13.489
+
+G0 Z 35 F400
+G0 Y 0 F400
+G0 X 0 F400	
+O<tool-length> endsub
+M02
