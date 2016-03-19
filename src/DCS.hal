@@ -12,7 +12,7 @@ loadrt lowpass names=lowpass.spindle
 
 loadusr -W hal_input -KRAL Microsoft
 
-loadusr -W ./src/puma5gui
+loadusr -W ./puma5gui
 
 loadrt or2 count=7
 
