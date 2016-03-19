@@ -1,0 +1,6 @@
+# Include your custom HAL commands here
+# This file will not be overwritten when you run PNCconf again
+
+
+
+# source custom_postgui.hal

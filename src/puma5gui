@@ -1,0 +1,147 @@
+#!/usr/bin/python
+
+#this file works for me and can be loaded with axis
+#all pins are connected, the part ram ist connected to 3 degrees of freedom respectively to 4 joints as dummy
+
+from vismach import *
+import hal
+import math
+import sys
+
+c = hal.component("puma5gui")
+c.newpin("X", hal.HAL_FLOAT, hal.HAL_IN)
+c.newpin("Y", hal.HAL_FLOAT, hal.HAL_IN)
+c.newpin("Z", hal.HAL_FLOAT, hal.HAL_IN)
+c.newpin("spindle", hal.HAL_FLOAT, hal.HAL_IN)
+c.ready()
+# geometry, placement, joints, colour
+
+
+work = Capture()
+
+tool = Capture()
+
+tooltip = Capture()
+
+
+tool = Collection([tooltip, tool])
+
+# Z OBJ ;)
+
+#part = Collection([tooltip,Box(-10,-10,50, 10,10,15)])
+#part = HalRotate([part],c,"joint0",700,1,0,0)
+
+
+spindel = AsciiOBJ(filename="3d/spindel.obj")
+spindel = Color([0.9,0.91,0.94,0.1],[spindel]) 
+spindel = Translate([spindel],0,0,0)
+
+spindelback = AsciiOBJ(filename="3d/spindelback.obj")
+spindelback = Color([0.38,0.38,0.39,0.5],[spindelback]) 
+spindelback = Translate([spindelback],0,0,0)
+
+spindelfutter = AsciiOBJ(filename="3d/spindelfutter.obj")
+spindelfutter = Color([0.85,0.76,0.69,1],[spindelfutter]) 
+spindelfutter = Translate([spindelfutter],0,0,0)
+
+toolhalter = AsciiOBJ(filename="3d/toolhalter.obj")
+toolhalter = Color([0.89,0.86,0.84,1],[toolhalter]) 
+toolhalter = Translate([toolhalter],0,0,0)
+
+toolmill = AsciiOBJ(filename="3d/tool.obj")
+toolmill = Color([0.89,0.86,0.84,1],[toolmill]) 
+toolmill = Translate([toolmill],0,0,0)
+
+toolmom = AsciiOBJ(filename="3d/toolmutter.obj")
+toolmom = Color([.16,0.17,0.19,1],[toolmom]) 
+toolmom = Translate([toolmom],0,0,0)
+toolmom = Collection([toolmom, toolmill, toolhalter])
+
+toolmom = HalRotate([toolmom],c,"spindle", 360, 0, 0, 1)	
+
+
+wagen = AsciiOBJ(filename="3d/Zwagen.obj")
+wagen = Color([0.13,0.2,0.1,0.1],[wagen]) 
+wagen = Translate([wagen],0,0,0)
+
+sphalter = AsciiOBJ(filename="3d/spindelhalter.obj")
+sphalter = Color([0.19,0.17,0.1,1],[sphalter]) 
+sphalter = Translate([sphalter],0,0,0)
+
+
+spadapt = AsciiOBJ(filename="3d/Zadapterplate.obj")
+spadapt = Color([0.88,0.88,0.89,1],[spadapt]) 
+spadapt = Translate([spadapt],0,0,0)
+
+
+
+zbase = AsciiOBJ(filename="3d/ztisch.obj")
+zbase = Color([0.7,0.7,0.64,1],[zbase]) 
+zbase = Translate([zbase],0,0,0)
+zbase = Collection([zbase, wagen, spindel, spindelback, sphalter, spindelfutter, toolmom, spadapt])
+
+zbase = HalTranslate([zbase],c,"Z",0,0,1,)
+
+
+# Y OBJ
+
+yschiene = AsciiOBJ(filename="3d/Yschiene.obj")
+yschiene = Color([0.9,0.9,0.9,0.1],[yschiene]) 
+yschiene = Translate([yschiene],0,0,0)
+
+yxbase = AsciiOBJ(filename="3d/Ybase.obj")
+yxbase = Color([0.79,0.32,0.28,0.5],[yxbase]) 
+yxbase = Translate([yxbase],0,0,0)
+yxbase = Collection([yxbase, yschiene])
+
+ywagen = AsciiOBJ(filename="3d/Ywagen.obj")
+ywagen = Color([0.13,0.2,0.1,0.1],[ywagen]) 
+ywagen = Translate([ywagen],0,35,0)
+
+ybase = AsciiOBJ(filename="3d/Ytisch.obj")
+ybase = Color([0.7,0.7,0.64,1],[ybase]) 
+ybase = Translate([ybase],0,35,0)
+ybase = Collection([ybase, ywagen ])
+
+ybase = HalTranslate([ybase],c,"Y",0,-1,0,)
+
+# X OBJ
+
+xwagen = AsciiOBJ(filename="3d/Xwagen.obj")
+xwagen = Color([0.13,0.2,0.1,0.1],[xwagen]) 
+xwagen = Translate([xwagen],0,0,0)
+
+
+xbase = AsciiOBJ(filename="3d/Xtisch.obj")
+xbase = Color([0.7,0.7,0.64,1],[xbase]) 
+xbase = Translate([xbase],0,0,0)
+xbase = Collection([xbase, xwagen, ybase, yxbase])
+
+xbase = HalTranslate([xbase],c,"X",-1,0,0,)
+
+
+# Basis
+
+xschiene = AsciiOBJ(filename="3d/Xschiene.obj")
+xschiene = Color([0.9,0.9,0.9,0.1],[xschiene]) 
+xschiene = Translate([xschiene],0,0,0)
+
+
+zschiene = AsciiOBJ(filename="3d/1Zschiene.obj")
+zschiene = Color([0.9,0.9,0.9,0.1],[zschiene]) 
+zschiene = Translate([zschiene],0,0,0)
+
+tbase = AsciiOBJ(filename="3d/baseT.obj")
+tbase = Color([0.79,0.32,0.28,0.5],[tbase]) 
+tbase = Translate([tbase],0,0,0)
+tbase = Collection([tbase, zschiene, xschiene])
+
+
+table = Collection([work,tbase])
+
+#dcs
+#model() and main() have a certain structure you always have to use 
+model = Collection([tooltip, table, zbase, xbase, tbase])
+main(model, tooltip, work, 700, lat=55, lon=0)
+
+

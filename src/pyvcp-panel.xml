@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pyvcp>
+<!-- Include your PyVCP panel here.The contents of this file will not be overwritten when you run stepconf again.-->
+
+	
+<hbox>
+	<labelframe text="X">
+	<vbox>
+
+		<meter>
+			<halpin>"vel_x"</halpin>
+			<text>"VELOCITY"</text>
+			<subtext>"X"</subtext>
+			<size>130</size>
+			<min_>-35</min_>
+			<max_>35</max_>
+			<majorscale>10</majorscale>
+			<minorscale>5</minorscale>
+			<region1>(-25,-35,"red")</region1>
+			<region2>(25,35,"red")</region2>
+		</meter>
+		<hbox>
+				<led halpin="limit_x_licht" on_color="yellow" off_color="black" />
+				
+				<label>
+					<text>" Limit"</text>
+					<font>("Helvetica",14)</font>
+			
+				</label>
+
+		</hbox>
+		<hbox>
+				<led halpin="home_x_licht" on_color="yellow" off_color="black" />
+				
+				<label>
+					<text>" Home"</text>
+					<font>("Helvetica",14)</font>
+			
+				</label>
+		</hbox>	
+	</vbox>
+	</labelframe>
+
+
+	<labelframe text="Y">
+	<vbox>
+
+		<meter>
+			<halpin>"vel_y"</halpin>
+			<text>"VELOCITY"</text>
+			<subtext>"Y"</subtext>
+			<size>130</size>
+			<min_>-35</min_>
+			<max_>35</max_>
+			<majorscale>10</majorscale>
+			<minorscale>5</minorscale>
+			<region1>(-25,-35,"red")</region1>
+			<region2>(25,35,"red")</region2>
+		</meter>
+		<hbox>
+				<led halpin="limit_y_licht" on_color="yellow" off_color="black" />
+				
+				<label>
+					<text>" Limit"</text>
+					<font>("Helvetica",14)</font>
+			
+				</label>
+				
+		</hbox>
+		<hbox>
+				<led halpin="home_y_licht" on_color="yellow" off_color="black" />
+				
+				<label>
+					<text>" Home"</text>
+					<font>("Helvetica",14)</font>
+			
+				</label>
+		</hbox>	
+
+	</vbox>
+	</labelframe>
+
+	<labelframe text="Z">
+	<vbox>
+
+		<meter>
+			<halpin>"vel_z"</halpin>
+			<text>"VELOCITY"</text>
+			<subtext>"z"</subtext>
+			<size>130</size>
+			<min_>-20</min_>
+			<max_>20</max_>
+			<majorscale>10</majorscale>
+			<minorscale>5</minorscale>
+			<region1>(-15,-20,"red")</region1>
+			<region2>(15,20,"red")</region2>
+		</meter>
+		<hbox>
+				<led halpin="limit_z_licht" on_color="yellow" off_color="black" />
+				
+				<label>
+					<text>" Limit"</text>
+					<font>("Helvetica",14)</font>
+			
+				</label>
+		</hbox>
+		<hbox>
+				<led halpin="home_z_licht" on_color="yellow" off_color="black" />
+				
+				<label>
+					<text>" Home"</text>
+					<font>("Helvetica",14)</font>
+			
+				</label>
+		</hbox>	
+
+	</vbox>
+	</labelframe>
+</hbox>
+
+
+
+
+									<hbox>
+										<labelframe>
+											<label> 
+												<text>"Spindle speed:"</text>
+											</label> 
+											<bar>
+												<halpin>"spindle-speed_AN"</halpin>
+												<min_>5000</min_>
+												<max_>50000</max_>
+												<bgcolor>"grey"</bgcolor>
+												<fillcolor>"red"</fillcolor>
+												
+											</bar>
+
+											</labelframe>
+										</hbox>
+
+
+
+	<vbox>
+		<labelframe text="Control LED">
+		
+			<hbox>
+			<led halpin="probe-in-led" on_color="yellow" off_color="black" />
+			<label>
+					<text>"Tool Probe"</text>
+					<font>("Helvetica",14)</font>	
+			</label>
+
+							<hbox>
+								<led halpin="spindle-on-led" on_color="yellow" off_color="black" />
+								<label>
+										<text>"Spindle ON"</text>
+										<font>("Helvetica",14)</font>	
+								</label>
+							</hbox>
+
+
+
+
+
+		</hbox>
+
+		<hbox>
+			<led halpin="tool-lock-led" on_color="yellow" off_color="black" />
+			<label>
+					<text>"Tool Lock"</text>
+					<font>("Helvetica",14)</font>	
+			</label>
+
+								<hbox>
+									<led halpin="spindle-clean-air-led" on_color="yellow" off_color="black" />
+									<label>
+											<text>"Spindle-clean-air"</text>
+											<font>("Helvetica",14)</font>	
+									</label>
+								</hbox>
+
+		</hbox>
+
+
+		
+
+		</labelframe>
+	</vbox>
+
+
+
+											
+
+
+<hbox>
+	<labelframe text="Jog Button">
+<hbox>
+				<label>
+					<text>"                "</text>
+					<font>("Helvetica",14)</font>			
+				</label>
+
+	<vbox>
+		<button>
+			<halpin>"set-neg-y"</halpin>
+			<text>" -Y"</text>
+			<font>("Helvetica",14)</font>
+			<justify>"center"</justify>
+		</button>
+	</vbox>
+				<label>
+					<text>"  "</text>
+					<font>("Helvetica",14)</font>			
+				</label>
+
+	<vbox>
+		<button>
+			<halpin>"set-neg-z"</halpin>
+			<text>" -Z"</text>
+			<font>("Helvetica",14)</font>
+			<justify>"center"</justify>
+		</button>
+	</vbox>
+
+</hbox>
+
+<hbox>
+
+	<vbox>
+		<button>
+			<halpin>"set-pos-x"</halpin>
+			<text>"+X"</text>
+			<font>("Helvetica",14)</font>
+			<justify>"center"</justify>
+		</button>
+	</vbox>
+
+
+<vbox>
+<image name="kr" file="kreuz.gif"/>
+
+<image_bit halpin="fanton"	images="kr"/>
+</vbox>
+
+			<label>
+					<text>" "</text>
+					<font>("Helvetica",14)</font>			
+				</label>
+
+
+		<vbox>	
+			<button>
+				<halpin>"set-neg-x"</halpin>
+				<text>" -X"</text>
+				<font>("Helvetica",14)</font>
+				<justify>"center"</justify>
+			</button>
+		</vbox>
+				
+
+
+</hbox>
+
+<hbox>
+
+	<vbox>
+		<button>
+		<halpin>"set-pos-z"</halpin>
+		<text>" +Z"</text>
+		<font>("Helvetica",14)</font>
+		<justify>"center"</justify>
+		</button>
+	</vbox>
+
+				<label>
+					<text>"    "</text>
+					<font>("Helvetica",14)</font>			
+				</label>
+	<vbox>
+		<button>
+		<halpin>"set-pos-y"</halpin>
+		<text>"+Y"</text>
+		<font>("Helvetica",14)</font>
+		<justify>"center"</justify>
+		</button>
+	</vbox>
+
+
+</hbox>
+
+
+
+
+	</labelframe>
+
+	<labelframe text="Jog Speed">
+			
+
+<!-- jogging -->
+	
+
+<vbox> 
+	<dial>
+		<size>150</size>
+		<cpr>100</cpr>
+		<min_>0</min_>
+		<max_>1500</max_>
+		<text>"Dial"</text>
+		<initval>0</initval>
+		<resolution>100.0</resolution>
+		
+		<halpin>"speed"</halpin>
+
+		<dialcolor>"yellow"</dialcolor>
+		<edgecolor>"green"</edgecolor>
+		<dotcolor>"black"</dotcolor>
+		<param_pin>1</param_pin>
+	</dial>
+</vbox>
+</labelframe>
+</hbox>
+
+
+
+<labelframe text="Funktions Button">
+
+
+<hbox> 
+	<vbox> 
+		<button>
+			<halpin>"set-tool-length"</halpin>
+			<text>"Tool-Length"</text>
+			<font>("Helvetica",14)</font>
+			<justify>"center"</justify>
+		</button>
+	
+		<button>
+			<halpin>"set-ngc"</halpin>
+			<text>"NGC-File"</text>
+			<font>("Helvetica",14)</font>
+			<justify>"center"</justify>
+		</button>
+	</vbox> 
+	<vbox> 
+		<button>
+			<halpin>"position_off"</halpin>
+			<text>"Position_OFF"</text>
+			<font>("Helvetica",14)</font>
+			<justify>"center"</justify>
+		</button>
+	
+		<button>
+			<halpin>"set-position-save"</halpin>
+			<text>"Position-Save"</text>
+			<font>("Helvetica",14)</font>
+			<justify>"center"</justify>
+		</button>
+	</vbox> 
+
+	<vbox> 
+		<button>
+			<halpin>"position_start"</halpin>
+			<text>"Position_START"</text>
+			<font>("Helvetica",14)</font>
+			<justify>"center"</justify>
+		</button>
+	
+		
+	</vbox> 
+</hbox> 
+<hbox>
+    <labelframe text="Machine">
+    <hbox>
+        <button>
+                <halpin>"machine.on"</halpin>
+                <text>"ON"</text> 
+                <justify>"center"</justify>
+        </button>
+        <button>
+                <halpin>"machine.off"</halpin>
+                <text>"OFF"</text> 
+                <justify>"center"</justify>
+	</button>
+    </hbox>
+    <hbox>
+	<label><text>"Machine on: "</text></label>
+	<led>
+	    <halpin>"machine.is-on"</halpin>
+	    <size>20</size>
+	    <on_color>"green"</on_color>
+	    <off_color>"black"</off_color>
+	</led>
+    </hbox>
+    </labelframe>
+
+    <labelframe text="Estop">
+    <hbox>
+        <button>
+                <halpin>"estop.activate"</halpin>
+                <text>"Act"</text> 
+                <justify>"center"</justify>
+        </button>
+        <button>
+                <halpin>"estop.reset"</halpin>
+                <text>"Reset"</text> 
+                <justify>"center"</justify>
+	</button>
+    </hbox>
+    <hbox>
+	<label><text>"ESTOP: "</text></label>
+	<led>
+	    <halpin>"estop.is-activated"</halpin>
+	    <size>20</size>
+	    <on_color>"red"</on_color>
+	    <off_color>"green"</off_color>
+	</led>
+    </hbox>
+    </labelframe>
+</hbox>
+
+
+</labelframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pyvcp>

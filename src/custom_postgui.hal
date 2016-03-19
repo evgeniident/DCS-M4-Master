@@ -1,0 +1,100 @@
+
+#--------------------LED
+
+
+net x-neg-limit 	=>	pyvcp.limit_x_licht
+
+net y-neg-limit 	=>	pyvcp.limit_y_licht
+
+net z-neg-limit 	=>	pyvcp.limit_z_licht
+
+net probe-in		=>	pyvcp.probe-in-led
+
+net spindle-on	 	=>	pyvcp.spindle-on-led
+
+net tool-lock	hm2_5i25.0.7i77.0.0.output-03	=>	pyvcp.tool-lock-led
+
+net tool-lock	motion.digital-out-00
+
+net spindle-clean-air 	<=	pyvcp.spindle-clean-air-led
+
+#-----------HOME
+
+net x-home-sw	 	=>	pyvcp.home_x_licht
+
+net y-home-sw	 	=>	pyvcp.home_y_licht
+
+net z-home-sw	 	=>	pyvcp.home_z_licht
+
+
+#--------------VELOCITY
+
+net x-vel-fb 		=>	pyvcp.vel_x
+
+net y-vel-fb 		=>	pyvcp.vel_y
+
+net z-vel-fb 		=>	pyvcp.vel_z
+
+
+#-------- Jog BUTTON OR USB-pad
+
+
+net button-x-pos  	pyvcp.set-pos-x					=> or2.0.in0
+net stick-x-pos		input.0.abs-hat0x-is-pos		=> or2.0.in1	
+net jog-x-pos		or2.0.out
+
+net button-x-neg  	pyvcp.set-neg-x					=> or2.1.in0
+net stick-x-neg		input.0.abs-hat0x-is-neg		=> or2.1.in1	
+net jog-x-neg		or2.1.out
+
+net button-y-pos  	pyvcp.set-pos-y					=> or2.2.in0
+net stick-y-pos		input.0.abs-hat0y-is-pos		=> or2.2.in1	
+net jog-y-pos		or2.2.out
+
+net button-y-neg  	pyvcp.set-neg-y					=> or2.3.in0
+net stick-y-neg		input.0.abs-hat0y-is-neg		=> or2.3.in1	
+net jog-y-neg		or2.3.out
+
+net button-z-pos  	pyvcp.set-pos-z					=> or2.4.in0
+net stick-z-pos		input.0.btn-x					=> or2.4.in1	
+net jog-z-pos		or2.4.out
+
+net button-z-neg  	pyvcp.set-neg-z					=> or2.5.in0
+net stick-z-neg		input.0.btn-tl					=> or2.5.in1	
+net jog-z-neg		or2.5.out
+
+net speed-pos		input.0.btn-a =>	halui.feed-override.increase 
+net speed-neg		input.0.btn-b =>	halui.feed-override.decrease 
+ 	 
+#net machine-is-on	input.0.btn-select
+  
+net estop-activate		input.0.btn-select			halui.estop.activate
+net estop-reset			input.0.btn-mode			halui.estop.reset
+net estop-is-activated	pyvcp.estop.is-activated	halui.estop.is-activated
+
+net machine-off          pyvcp.machine.off          halui.machine.off
+net machine-on           input.0.btn-start           halui.machine.on
+net machine-is-on        pyvcp.machine.is-on        halui.machine.is-on
+
+
+#-------Jog Wheel
+
+net speed	halui.jog-speed <= 	pyvcp.speed
+
+
+
+
+# Funktions Button
+
+net set-tool-length		halui.mdi-command-00 <= pyvcp.set-tool-length
+net set-ngc 			halui.mdi-command-01 <= pyvcp.set-ngc
+net position_off		halui.mdi-command-02 <= pyvcp.position_off
+net set-position-save	halui.mdi-command-03 <= pyvcp.set-position-save
+net position_start		halui.mdi-command-04 <= pyvcp.position_start
+
+
+
+# Spindle-Speed
+
+net spindle-vel-cmd-rpm-abs		pyvcp.spindle-speed_AN
+
