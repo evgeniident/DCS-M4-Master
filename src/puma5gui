@@ -8,7 +8,7 @@ import hal
 import math
 import sys
 
-c = hal.component("puma5gui")
+c = hal.component("scr/puma5gui")
 c.newpin("X", hal.HAL_FLOAT, hal.HAL_IN)
 c.newpin("Y", hal.HAL_FLOAT, hal.HAL_IN)
 c.newpin("Z", hal.HAL_FLOAT, hal.HAL_IN)
