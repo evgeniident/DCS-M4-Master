@@ -1,0 +1,24 @@
+O<basket_1.eject_tool> sub
+(msg, eject_tool function)
+M05
+F1600
+G1 Z-125
+
+
+F200
+G1 Z-139
+M64 P0
+
+G04 P1
+
+
+F2000
+G1 Z-120
+M65 P0
+G0 Z0
+
+M61 Q0
+
+
+O<basket_1.eject_tool> endsub
+M02
