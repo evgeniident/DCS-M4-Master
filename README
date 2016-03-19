@@ -1,19 +1,16 @@
 
-
-
-
-
-
-
-
-
- https://github.com/evgeniident/DCS_M4_FIRST.git 
-
+cd ~/linuxcnc/configs
 
 git clone https://github.com/evgeniident/DCS_M4_Master.git ~/linuxcnc/configs/DCS_M4_Master
 
-cd ~/linuxcnc/configs/DCS_M4_FIRST
-
-
+cd ~/linuxcnc/configs/DCS_M4_Master
 
 git pull https://github.com/evgeniident/DCS_M4_Master.git
+
+
+puma5gui 
+--->  must have, properties entitlement file can be started as a program
+--->  muss über, Eigenschften Berechtigung Datei darf als Programm gestartet werden
+
+----------->for `git pull` must change course to be reset
+----------->für `git pull` muss die änderung natürlich zurückgesetzt weredn
