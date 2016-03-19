@@ -1,0 +1,65 @@
+O<sys.get_poc_info> sub
+(DEBUG, Called sys.get_poc_info function)
+(msg, prüfe)
+
+#<required_tool> = #2
+
+O130 if [ #<required_tool> LE 0 ]
+(msg, bin LEER!!!!)
+
+
+	O130 elseif [ #<required_tool> EQ 1 ]
+(msg, es ist 1)
+
+G21 G40 G49 G90 G92.1 G94
+G10 L2 P1 X0 Y0 Z0
+M05
+G54
+G0 Z0
+G0 Y-25
+G0 X-155 
+G0 Y-35
+
+	O130 elseif [ #<required_tool> EQ 2 ]
+(msg, es ist 2)
+G21 G40 G49 G90 G92.1 G94
+G10 L2 P1 X0 Y0 Z0
+M05
+G54
+G0 Z0
+G0 Y-25
+G0 X-155 
+G0 Y5
+
+	O130 elseif [ #<required_tool> EQ 3 ]
+(msg, es ist 3)
+G21 G40 G49 G90 G92.1 G94
+G10 L2 P1 X0 Y0 Z0
+M05
+G54
+G0 Z0
+G0 Y-25
+G0 X-155 
+G0 Y45
+
+	O130 elseif [ #<required_tool> EQ 4 ]
+(msg, es ist 4)
+G21 G40 G49 G90 G92.1 G94
+G10 L2 P1 X0 Y0 Z0
+M05
+G54
+G0 Z0
+G0 Y-25
+G0 X-155 
+G0 Y85
+
+	O130 else
+	(DEBUG, get_poc_info Error required_tool = #<required_tool> Programm Stoping now)
+	M02
+
+O130 endif
+
+
+
+O<sys.get_poc_info> endsub
+M02
