@@ -1,0 +1,24 @@
+O<basket_1.inject_tool> sub
+(msg, inject_tool function)
+M05
+F1600
+G1 Z-125
+
+M64 P0
+F200
+G1 Z-138
+M65 P0
+
+F1600
+G1 Z-125
+
+G0 Z0
+
+M61 Q#<_selected_tool>
+G43 H[#<_selected_tool>]				(Längenkorrektur aus WTabelle holen)
+(msg, now tool-length-probe)
+
+O<tool-length> call [1]
+
+O<basket_1.inject_tool> endsub
+M02
