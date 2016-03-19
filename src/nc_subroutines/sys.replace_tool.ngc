@@ -1,0 +1,34 @@
+O<sys.replace_tool> sub
+
+O133 if [ #<_current_tool> EQ #<_selected_tool> ]
+(msg, bin Hallo!!!!)
+
+O133 elseif [ #<_current_tool> NE #<_selected_tool> ]
+
+O<sys.get_poc_info> call [1] [#<_current_tool>]
+(DEBUG,Eject tool)
+(DEBUG, _current_tool = #<_current_tool>)
+(DEBUG, _selected_tool> = #<_selected_tool>)
+
+(Функции eject_tool зависит от конкретной карзины)
+
+O100 if [[#<_current_tool> NE #<_selected_tool>] AND [#<_current_tool> GE 1]]
+
+O<basket_1.eject_tool> call [1]
+
+O100 endif
+
+O<sys.get_poc_info> call [1] [#<_selected_tool>]
+(DEBUG,Inject tool)
+(DEBUG, _selected_tool = #<_selected_tool>)
+
+O110 if [#<_selected_tool> NE 0]
+
+O<basket_1.inject_tool> call [1]
+
+
+O110 endif
+O133 endif
+
+O<sys.replace_tool> endsub
+M02
