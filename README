@@ -7,12 +7,13 @@
 
 
 
-git clone https://github.com/evgeniident/DCS_M4_FIRST.git ~/linuxcnc/configs/DCS_M4_FIRST
+ https://github.com/evgeniident/DCS_M4_FIRST.git 
 
 
+git clone https://github.com/evgeniident/DCS_M4_Master.git ~/linuxcnc/configs/DCS_M4_Master
 
 cd ~/linuxcnc/configs/DCS_M4_FIRST
 
 
 
-git pull https://github.com/evgeniident/DCS_M4_FIRST.git
+git pull https://github.com/evgeniident/DCS_M4_Master.git
