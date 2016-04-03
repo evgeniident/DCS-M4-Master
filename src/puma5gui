@@ -98,10 +98,22 @@ ywagen = AsciiOBJ(filename="3d/Ywagen.obj")
 ywagen = Color([0.13,0.2,0.1,0.1],[ywagen]) 
 ywagen = Translate([ywagen],0,35,0)
 
+aaxse = AsciiOBJ(filename="3d/Aaxse.obj")
+aaxse = Color([0.88,0.88,0.89,1],[aaxse]) 
+aaxse = Translate([aaxse],0,0,0)
+
+abase = AsciiOBJ(filename="3d/Abase.obj")
+abase = Color([0.13,0.2,0.1,0.1],[abase]) 
+abase = Translate([abase],0,0,0)
+
+aadapter = AsciiOBJ(filename="3d/Aadapter.obj")
+aadapter = Color([0.13,0.2,0.1,0.1],[aadapter]) 
+aadapter = Translate([aadapter],0,0,0)
+
 ybase = AsciiOBJ(filename="3d/Ytisch.obj")
 ybase = Color([0.7,0.7,0.64,1],[ybase]) 
 ybase = Translate([ybase],0,35,0)
-ybase = Collection([ybase, ywagen ])
+ybase = Collection([ybase, ywagen, aaxse, abase, aadapter])
 
 ybase = HalTranslate([ybase],c,"Y",0,-1,0,)
 
