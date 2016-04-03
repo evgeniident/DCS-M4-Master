@@ -2,8 +2,14 @@
 <pyvcp>
 <!-- Include your PyVCP panel here.The contents of this file will not be overwritten when you run stepconf again.-->
 
-	
+	<vbox>
+<vbox>
+	<image name="ksr" file="Bild/linuxcnc.gif"/>
+
+	<image_bit halpin="fasnton"	images="ksr"/>
+	</vbox>
 <hbox>
+
 	<labelframe text="X">
 	<vbox>
 
@@ -24,7 +30,7 @@
 				
 				<label>
 					<text>" Limit"</text>
-					<font>("Helvetica",14)</font>
+					<font>("Helvetica",12)</font>
 			
 				</label>
 
@@ -34,7 +40,7 @@
 				
 				<label>
 					<text>" Home"</text>
-					<font>("Helvetica",14)</font>
+					<font>("Helvetica",12)</font>
 			
 				</label>
 		</hbox>	
@@ -62,7 +68,7 @@
 				
 				<label>
 					<text>" Limit"</text>
-					<font>("Helvetica",14)</font>
+					<font>("Helvetica",12)</font>
 			
 				</label>
 				
@@ -72,7 +78,7 @@
 				
 				<label>
 					<text>" Home"</text>
-					<font>("Helvetica",14)</font>
+					<font>("Helvetica",12)</font>
 			
 				</label>
 		</hbox>	
@@ -100,7 +106,7 @@
 				
 				<label>
 					<text>" Limit"</text>
-					<font>("Helvetica",14)</font>
+					<font>("Helvetica",12)</font>
 			
 				</label>
 		</hbox>
@@ -109,7 +115,7 @@
 				
 				<label>
 					<text>" Home"</text>
-					<font>("Helvetica",14)</font>
+					<font>("Helvetica",12)</font>
 			
 				</label>
 		</hbox>	
@@ -146,17 +152,17 @@
 			<hbox>
 			<led halpin="probe-in-led" on_color="yellow" off_color="black" />
 			<label>
-					<text>"Tool Probe"</text>
-					<font>("Helvetica",14)</font>	
+				<text>"Tool Probe"</text>
+				<font>("Helvetica",12)</font>	
 			</label>
 
-							<hbox>
-								<led halpin="spindle-on-led" on_color="yellow" off_color="black" />
-								<label>
-										<text>"Spindle ON"</text>
-										<font>("Helvetica",14)</font>	
-								</label>
-							</hbox>
+			<hbox>
+				<led halpin="spindle-on-led" on_color="yellow" off_color="black" />
+				<label>
+					<text>"Spindle ON"</text>
+					<font>("Helvetica",12)</font>	
+				</label>
+			</hbox>
 
 
 
@@ -168,14 +174,14 @@
 			<led halpin="tool-lock-led" on_color="yellow" off_color="black" />
 			<label>
 					<text>"Tool Lock"</text>
-					<font>("Helvetica",14)</font>	
+					<font>("Helvetica",12)</font>	
 			</label>
 
 								<hbox>
 									<led halpin="spindle-clean-air-led" on_color="yellow" off_color="black" />
 									<label>
 											<text>"Spindle-clean-air"</text>
-											<font>("Helvetica",14)</font>	
+											<font>("Helvetica",12)</font>	
 									</label>
 								</hbox>
 
@@ -189,248 +195,389 @@
 
 
 
-											
+<tabs>
+    <names>["ControlButtons", "Jog", "Tool-Spindle control", "Ham"]</names>
+
+<vbox>
+	<hbox> 
+		<vbox> 
+			<button>
+				<halpin>"set-tool-length"</halpin>
+				<text>"Tool-Length"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+			</button>
+	
+			<button>
+				<halpin>"set-ngc"</halpin>
+				<text>"NGC-File"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+			</button>
+		</vbox> 
+		<vbox> 
+			<button>
+				<halpin>"position_off"</halpin>
+				<text>"Position_OFF"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+			</button>
+	
+			<button>
+				<halpin>"set-position-save"</halpin>
+				<text>"Position-Save"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+			</button>
+		</vbox> 
+
+		<vbox> 
+			<button>
+				<halpin>"position_start"</halpin>
+				<text>"Position_START"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+			</button>
+	
+		
+		</vbox> 
+	</hbox> 
+
+		<hbox>
+			<labelframe text="Machine">
+			<hbox>
+				<button>
+				        <halpin>"machine.on"</halpin>
+				        <text>"ON"</text> 
+				        <justify>"center"</justify>
+				</button>
+				<button>
+				        <halpin>"machine.off"</halpin>
+				        <text>"OFF"</text> 
+				        <justify>"center"</justify>
+			</button>
+			</hbox>
+			<hbox>
+			<label><text>"Machine on: "</text></label>
+			<led>
+				<halpin>"machine.is-on"</halpin>
+				<size>20</size>
+				<on_color>"green"</on_color>
+				<off_color>"black"</off_color>
+			</led>
+			</hbox>
+			</labelframe>
+
+			<labelframe text="Estop">
+			<hbox>
+				<button>
+				        <halpin>"estop.activate"</halpin>
+				        <text>"Act"</text> 
+				        <justify>"center"</justify>
+				</button>
+				<button>
+				        <halpin>"estop.reset"</halpin>
+				        <text>"Reset"</text> 
+				        <justify>"center"</justify>
+			</button>
+			</hbox>
+			<hbox>
+			<label><text>"ESTOP: "</text></label>
+			<led>
+				<halpin>"estop.is-activated"</halpin>
+				<size>20</size>
+				<on_color>"red"</on_color>
+				<off_color>"green"</off_color>
+			</led>
+			</hbox>
+			</labelframe>
+	</hbox>
+</vbox>  
 
 
+<!-- jogging -->
+
+
+<vbox>  
 <hbox>
-	<labelframe text="Jog Button">
-<hbox>
-				<label>
-					<text>"                "</text>
-					<font>("Helvetica",14)</font>			
-				</label>
+	<image name="jog" file="Bild/jog.gif"/>
 
-	<vbox>
-		<button>
-			<halpin>"set-neg-y"</halpin>
-			<text>" -Y"</text>
-			<font>("Helvetica",14)</font>
-			<justify>"center"</justify>
-		</button>
-	</vbox>
-				<label>
-					<text>"  "</text>
-					<font>("Helvetica",14)</font>			
-				</label>
+	<image_bit halpin="fan"	images="jog"/>
+				
+<vbox> 
+ 
+	<hbox>
+			<label>
+				<text>"                "</text>
+				<font>("Helvetica",12)</font>			
+			</label>
 
-	<vbox>
-		<button>
-			<halpin>"set-neg-z"</halpin>
-			<text>" -Z"</text>
-			<font>("Helvetica",14)</font>
-			<justify>"center"</justify>
-		</button>
-	</vbox>
+			<vbox>
+				<button>
+					<halpin>"set-neg-y"</halpin>
+					<text>" -Y"</text>
+					<font>("Helvetica",12)</font>
+					<justify>"center"</justify>
+				</button>
+			</vbox>
+						<label>
+							<text>"  "</text>
+							<font>("Helvetica",12)</font>			
+						</label>
 
+			<vbox>
+				<button>
+					<halpin>"set-neg-z"</halpin>
+					<text>" -Z"</text>
+					<font>("Helvetica",12)</font>
+					<justify>"center"</justify>
+				</button>
+			</vbox>
+
+				<vbox>
+						<label>
+							<text>"            Jog Speed    "</text>
+							<font>("Helvetica",12)</font>			
+						</label>
+				</vbox>	
+
+
+			</hbox>
+			<hbox>
+
+			<vbox>
+				<button>
+					<halpin>"set-pos-x"</halpin>
+					<text>"+X"</text>
+					<font>("Helvetica",12)</font>
+					<justify>"center"</justify>
+				</button>
+			</vbox>
+
+
+			<vbox>
+			<image name="kr" file="Bild/kreuz.gif"/>
+
+			<image_bit halpin="fanton"	images="kr"/>
+			</vbox>
+
+					<label>
+							<text>" "</text>
+							<font>("Helvetica",12)</font>			
+						</label>
+
+
+				<vbox>	
+					<button>
+						<halpin>"set-neg-x"</halpin>
+						<text>" -X"</text>
+						<font>("Helvetica",12)</font>
+						<justify>"center"</justify>
+					</button>
+				</vbox>
+
+				<vbox>
+						<label>
+							<text>"          "</text>
+							<font>("Helvetica",12)</font>			
+						</label>
+				</vbox>	
+					<hbox>
+						<vbox> 
+							<dial>
+								<size>100</size>
+								<cpr>50</cpr>
+								<min_>0</min_>
+								<max_>1500</max_>
+								<text>"Dial"</text>
+								<initval>0</initval>
+								<resolution>100.0</resolution>
+		
+								<halpin>"speed"</halpin>
+
+								<dialcolor>"yellow"</dialcolor>
+								<edgecolor>"green"</edgecolor>
+								<dotcolor>"black"</dotcolor>
+								<param_pin>1</param_pin>
+							</dial>
+						</vbox>	
+				
+				</hbox>
+
+			</hbox>
+
+			<hbox>
+
+				<vbox>
+					<button>
+					<halpin>"set-pos-z"</halpin>
+					<text>" +Z"</text>
+					<font>("Helvetica",12)</font>
+					<justify>"center"</justify>
+					</button>
+				</vbox>
+
+							<label>
+								<text>"    "</text>
+								<font>("Helvetica",12)</font>			
+							</label>
+				<vbox>
+					<button>
+					<halpin>"set-pos-y"</halpin>
+					<text>"+Y"</text>
+					<font>("Helvetica",12)</font>
+					<justify>"center"</justify>
+					</button>
+				</vbox>
+		</hbox>	
+</vbox>				
+	
 </hbox>
 
-<hbox>
+</vbox>
 
-	<vbox>
-		<button>
-			<halpin>"set-pos-x"</halpin>
-			<text>"+X"</text>
-			<font>("Helvetica",14)</font>
-			<justify>"center"</justify>
-		</button>
-	</vbox>
+
+
+
 
 
 <vbox>
-<image name="kr" file="kreuz.gif"/>
-
-<image_bit halpin="fanton"	images="kr"/>
-</vbox>
-
-			<label>
-					<text>" "</text>
-					<font>("Helvetica",14)</font>			
-				</label>
-
-
-		<vbox>	
-			<button>
-				<halpin>"set-neg-x"</halpin>
-				<text>" -X"</text>
-				<font>("Helvetica",14)</font>
-				<justify>"center"</justify>
-			</button>
-		</vbox>
-				
-
-
-</hbox>
-
-<hbox>
-
-	<vbox>
-		<button>
-		<halpin>"set-pos-z"</halpin>
-		<text>" +Z"</text>
-		<font>("Helvetica",14)</font>
-		<justify>"center"</justify>
-		</button>
-	</vbox>
-
+		<hbox>
+			<vbox>
 				<label>
-					<text>"    "</text>
-					<font>("Helvetica",14)</font>			
+				    <text>"(tool controll)"</text>
 				</label>
-	<vbox>
-		<button>
-		<halpin>"set-pos-y"</halpin>
-		<text>"+Y"</text>
-		<font>("Helvetica",14)</font>
-		<justify>"center"</justify>
-		</button>
-	</vbox>
-
-
-</hbox>
-
-
-
-
-	</labelframe>
-
-	<labelframe text="Jog Speed">
-			
-
-<!-- jogging -->
 	
+			<image name="tool" file="Bild/tool.gif"/>
 
-<vbox> 
-	<dial>
-		<size>150</size>
-		<cpr>100</cpr>
-		<min_>0</min_>
-		<max_>1500</max_>
-		<text>"Dial"</text>
-		<initval>0</initval>
-		<resolution>100.0</resolution>
-		
-		<halpin>"speed"</halpin>
+			<image_bit halpin="fantom-tool"	images="tool"/>
+			</vbox>
 
-		<dialcolor>"yellow"</dialcolor>
-		<edgecolor>"green"</edgecolor>
-		<dotcolor>"black"</dotcolor>
-		<param_pin>1</param_pin>
-	</dial>
+			<vbox>
+				<label>
+				    <text>"Tool changing selection"</text>
+					<font>("Helvetica",9)</font>
+				</label>
+
+				<button>
+				<halpin>"spindle_empty"</halpin>
+				<text>" Spindle_empty"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+				</button>
+
+				<button>
+				<halpin>"tool_1"</halpin>
+				<text>" Tool_1"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+				</button>
+
+				<button>
+				<halpin>"tool_2"</halpin>
+				<text>" Tool_2"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+				</button>
+
+				<button>
+				<halpin>"tool_3"</halpin>
+				<text>" Tool_3"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+				</button>
+			</vbox>
+			<vbox>
+				<label>
+				    <text>"Set-Tool"</text>
+				</label>
+
+				<button>
+				<halpin>"set_spindle_empty"</halpin>
+				<text>"Add_empty"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+				</button>
+
+				<button>
+				<halpin>"set_tool_1"</halpin>
+				<text>"Add_Tool_1"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+				</button>
+
+				<button>
+				<halpin>"set_tool_2"</halpin>
+				<text>"Add_Tool_2"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+				</button>
+
+				<button>
+				<halpin>"set_tool_3"</halpin>
+				<text>"Add_Tool_3"</text>
+				<font>("Helvetica",12)</font>
+				<justify>"center"</justify>
+				</button>
+			</vbox>
+
+
+			<vbox>
+				<label>
+				    <text>"air pressure"</text>
+					
+				</label>
+					<hbox>
+						<button>
+						<halpin>"close-colle"</halpin>
+						<text>"close_collet"</text>
+						<font>("Helvetica",12)</font>
+						<justify>"center"</justify>
+						</button>
+					</hbox>
+					<hbox>
+						<button>
+						<halpin>"open-collet"</halpin>
+						<text>"open_collet"</text>
+						<font>("Helvetica",12)</font>
+						<justify>"center"</justify>
+						</button>
+					</hbox>
+					<hbox>
+						<button>
+						<halpin>"clean-air"</halpin>
+						<text>"  clean_air  "</text>
+						<font>("Helvetica",12)</font>
+						<justify>"center"</justify>
+						<bd>2</bd>
+						</button>
+					</hbox>
+					<hbox>
+						<button>
+						<halpin>"se"</halpin>
+						<text>" --------------  "</text>
+						<font>("Helvetica",12)</font>
+						<justify>"center"</justify>
+						</button>
+					</hbox>
+			</vbox>
+		</hbox>
 </vbox>
-</labelframe>
-</hbox>
+<vbox>
+				<label>
+				    <text>"(this tab has nothing on it)"</text>
+				</label>
+</vbox>
+</tabs>					
 
 
 
 <labelframe text="Funktions Button">
 
 
-<hbox> 
-	<vbox> 
-		<button>
-			<halpin>"set-tool-length"</halpin>
-			<text>"Tool-Length"</text>
-			<font>("Helvetica",14)</font>
-			<justify>"center"</justify>
-		</button>
-	
-		<button>
-			<halpin>"set-ngc"</halpin>
-			<text>"NGC-File"</text>
-			<font>("Helvetica",14)</font>
-			<justify>"center"</justify>
-		</button>
-	</vbox> 
-	<vbox> 
-		<button>
-			<halpin>"position_off"</halpin>
-			<text>"Position_OFF"</text>
-			<font>("Helvetica",14)</font>
-			<justify>"center"</justify>
-		</button>
-	
-		<button>
-			<halpin>"set-position-save"</halpin>
-			<text>"Position-Save"</text>
-			<font>("Helvetica",14)</font>
-			<justify>"center"</justify>
-		</button>
-	</vbox> 
-
-	<vbox> 
-		<button>
-			<halpin>"position_start"</halpin>
-			<text>"Position_START"</text>
-			<font>("Helvetica",14)</font>
-			<justify>"center"</justify>
-		</button>
-	
-		
-	</vbox> 
-</hbox> 
-<hbox>
-    <labelframe text="Machine">
-    <hbox>
-        <button>
-                <halpin>"machine.on"</halpin>
-                <text>"ON"</text> 
-                <justify>"center"</justify>
-        </button>
-        <button>
-                <halpin>"machine.off"</halpin>
-                <text>"OFF"</text> 
-                <justify>"center"</justify>
-	</button>
-    </hbox>
-    <hbox>
-	<label><text>"Machine on: "</text></label>
-	<led>
-	    <halpin>"machine.is-on"</halpin>
-	    <size>20</size>
-	    <on_color>"green"</on_color>
-	    <off_color>"black"</off_color>
-	</led>
-    </hbox>
-    </labelframe>
-
-    <labelframe text="Estop">
-    <hbox>
-        <button>
-                <halpin>"estop.activate"</halpin>
-                <text>"Act"</text> 
-                <justify>"center"</justify>
-        </button>
-        <button>
-                <halpin>"estop.reset"</halpin>
-                <text>"Reset"</text> 
-                <justify>"center"</justify>
-	</button>
-    </hbox>
-    <hbox>
-	<label><text>"ESTOP: "</text></label>
-	<led>
-	    <halpin>"estop.is-activated"</halpin>
-	    <size>20</size>
-	    <on_color>"red"</on_color>
-	    <off_color>"green"</off_color>
-	</led>
-    </hbox>
-    </labelframe>
-</hbox>
-
-
 </labelframe>
 
-
-
-
-
-
-
-
-
-
-
+</vbox>
 
 
 </pyvcp>
